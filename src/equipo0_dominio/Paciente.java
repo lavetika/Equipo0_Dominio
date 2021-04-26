@@ -1,6 +1,7 @@
 
 package equipo0_dominio;
 
+import com.google.gson.annotations.Expose;
 import java.awt.Image;
 import java.util.Date;
 
@@ -8,36 +9,37 @@ import java.util.Date;
  *
  * @author dianacastro
  */
-public class Paciente {
+public class Paciente extends Usuario{
     
+    @Expose
     private String curp;
+    @Expose
     private String primerApellido;
+    @Expose
     private String segundoApellido;
+    @Expose
     private String nombre;
+    @Expose
     private String sexo;
+    @Expose
     private Date fechaNacimiento;
-    private String estadoNacimiento;
-    private Image foto;
-    private String nacionalidad;
-    private String municipio;
-    private String localidad;
+    @Expose
     private Paciente tutor;
 
-    public Paciente() {
+    
+    
+    public Paciente(String username, String password) {
+        super(username, password);
     }
 
-    public Paciente(String curp, String primerApellido, String segundoApellido, String nombre, String sexo, Date fechaNacimiento, String estadoNacimiento, Image foto, String nacionalidad, String municipio, String localidad, Paciente tutor) {
+    public Paciente(String curp, String primerApellido, String segundoApellido, String nombre, String sexo, Date fechaNacimiento, Paciente tutor, String username, String password) {
+        super(username, password);
         this.curp = curp;
         this.primerApellido = primerApellido;
         this.segundoApellido = segundoApellido;
         this.nombre = nombre;
         this.sexo = sexo;
         this.fechaNacimiento = fechaNacimiento;
-        this.estadoNacimiento = estadoNacimiento;
-        this.foto = foto;
-        this.nacionalidad = nacionalidad;
-        this.municipio = municipio;
-        this.localidad = localidad;
         this.tutor = tutor;
     }
 
@@ -87,46 +89,6 @@ public class Paciente {
 
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
-    }
-
-    public String getEstadoNacimiento() {
-        return estadoNacimiento;
-    }
-
-    public void setEstadoNacimiento(String estadoNacimiento) {
-        this.estadoNacimiento = estadoNacimiento;
-    }
-
-    public Image getFoto() {
-        return foto;
-    }
-
-    public void setFoto(Image foto) {
-        this.foto = foto;
-    }
-
-    public String getNacionalidad() {
-        return nacionalidad;
-    }
-
-    public void setNacionalidad(String nacionalidad) {
-        this.nacionalidad = nacionalidad;
-    }
-
-    public String getMunicipio() {
-        return municipio;
-    }
-
-    public void setMunicipio(String municipio) {
-        this.municipio = municipio;
-    }
-
-    public String getLocalidad() {
-        return localidad;
-    }
-
-    public void setLocalidad(String localidad) {
-        this.localidad = localidad;
     }
 
     public Paciente getTutor() {

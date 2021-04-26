@@ -1,6 +1,7 @@
 
 package equipo0_dominio;
 
+import com.google.gson.annotations.Expose;
 import java.util.List;
 
 /**
@@ -9,9 +10,11 @@ import java.util.List;
  */
 public class Expediente {
     
+    @Expose
     private int id;
+    @Expose
     private Paciente paciente;
-    private SolicitudExpediente solicitud;
+    @Expose
     private List<Documento> documentos;
     
 }

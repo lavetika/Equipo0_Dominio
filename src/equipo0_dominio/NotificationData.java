@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package equipo0_dominio;
 
 import com.google.gson.annotations.Expose;
@@ -6,22 +10,31 @@ import java.util.Date;
 
 /**
  *
- * @author dianacastro
+ * @author Alfonso Felix
  */
-public class SolicitudExpediente {
+public class NotificationData {
     @Expose
     private int idCita;
     @Expose
     private String nombreSolicitante;
     @Expose
     private Date fechaHora;
+    @Expose
+    private boolean aprobada;
+    @Expose
+    private String body;
 
-    public SolicitudExpediente(int idCita, String nombreSolicitante, Date fechaHora) {
+    public NotificationData() {
+    }
+
+    public NotificationData(int idCita, String nombreSolicitante, Date fechaHora, boolean aprobada, String body) {
         this.idCita = idCita;
         this.nombreSolicitante = nombreSolicitante;
         this.fechaHora = fechaHora;
+        this.aprobada = aprobada;
+        this.body = body;
     }
-
+    
     public int getIdCita() {
         return idCita;
     }
@@ -44,5 +57,21 @@ public class SolicitudExpediente {
 
     public void setFechaHora(Date fechaHora) {
         this.fechaHora = fechaHora;
+    }
+
+    public boolean isAprobada() {
+        return aprobada;
+    }
+
+    public void setAprobada(boolean aprobada) {
+        this.aprobada = aprobada;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
     }
 }

@@ -1,39 +1,41 @@
 
 package equipo0_dominio;
 
+import com.google.gson.annotations.Expose;
 import java.util.Date;
 
 /**
  *
  * @author dianacastro
  */
-public class TrabajadorSalud {
+public class TrabajadorSalud extends Usuario{
+    @Expose
     private String cedula;
+    @Expose
     private String primerApellido;
+    @Expose
     private String segundoApellido;
+    @Expose
     private String nombre;
+    @Expose
     private String sexo;
+    @Expose
     private Date fechaNacimiento;
-    private String estadoNacimiento;
-    private String nacionalidad;
-    private String municipio;
-    private String localidad;
+    @Expose
     private String lugarTrabajo;
 
-    public TrabajadorSalud() {
+    public TrabajadorSalud(String username, String password) {
+        super(username, password);
     }
 
-    public TrabajadorSalud(String cedula, String primerApellido, String segundoApellido, String nombre, String sexo, Date fechaNacimiento, String estadoNacimiento, String nacionalidad, String municipio, String localidad, String lugarTrabajo) {
+    public TrabajadorSalud(String cedula, String primerApellido, String segundoApellido, String nombre, String sexo, Date fechaNacimiento, String lugarTrabajo, String username, String password) {
+        super(username, password);
         this.cedula = cedula;
         this.primerApellido = primerApellido;
         this.segundoApellido = segundoApellido;
         this.nombre = nombre;
         this.sexo = sexo;
         this.fechaNacimiento = fechaNacimiento;
-        this.estadoNacimiento = estadoNacimiento;
-        this.nacionalidad = nacionalidad;
-        this.municipio = municipio;
-        this.localidad = localidad;
         this.lugarTrabajo = lugarTrabajo;
     }
     
@@ -83,38 +85,6 @@ public class TrabajadorSalud {
 
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
-    }
-
-    public String getEstadoNacimiento() {
-        return estadoNacimiento;
-    }
-
-    public void setEstadoNacimiento(String estadoNacimiento) {
-        this.estadoNacimiento = estadoNacimiento;
-    }
-
-    public String getNacionalidad() {
-        return nacionalidad;
-    }
-
-    public void setNacionalidad(String nacionalidad) {
-        this.nacionalidad = nacionalidad;
-    }
-
-    public String getMunicipio() {
-        return municipio;
-    }
-
-    public void setMunicipio(String municipio) {
-        this.municipio = municipio;
-    }
-
-    public String getLocalidad() {
-        return localidad;
-    }
-
-    public void setLocalidad(String localidad) {
-        this.localidad = localidad;
     }
 
     public String getLugarTrabajo() {
