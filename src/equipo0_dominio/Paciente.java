@@ -4,12 +4,18 @@ package equipo0_dominio;
 import com.google.gson.annotations.Expose;
 import java.awt.Image;
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author dianacastro
  */
+@Entity
 public class Paciente extends Usuario{
+
+    private static final long serialVersionUID = 1141232617244959151L;
     
     @Expose
     private String curp;
@@ -22,17 +28,21 @@ public class Paciente extends Usuario{
     @Expose
     private String sexo;
     @Expose
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fechaNacimiento;
     @Expose
     private Paciente tutor;
+    @Expose
+    private String tokenFirebase;
 
-    
+    public Paciente() {
+    }
     
     public Paciente(String username, String password) {
         super(username, password);
     }
 
-    public Paciente(String curp, String primerApellido, String segundoApellido, String nombre, String sexo, Date fechaNacimiento, Paciente tutor, String username, String password) {
+    public Paciente(String curp, String primerApellido, String segundoApellido, String nombre, String sexo, Date fechaNacimiento, Paciente tutor, String username, String password, String tokenFirebase) {
         super(username, password);
         this.curp = curp;
         this.primerApellido = primerApellido;
@@ -41,6 +51,7 @@ public class Paciente extends Usuario{
         this.sexo = sexo;
         this.fechaNacimiento = fechaNacimiento;
         this.tutor = tutor;
+        this.tokenFirebase=tokenFirebase;
     }
 
     public String getCurp() {
@@ -98,8 +109,16 @@ public class Paciente extends Usuario{
     public void setTutor(Paciente tutor) {
         this.tutor = tutor;
     }
+
+    public String getTokenFirebase() {
+        return tokenFirebase;
+    }
+
+    public void setTokenFirebase(String tokenFirebase) {
+        this.tokenFirebase = tokenFirebase;
+    }
     
-    
-    
-    
+    public String getNombreCompleto(){
+        return this.nombre+" "+this.primerApellido+" "+this.segundoApellido;
+    }
 }

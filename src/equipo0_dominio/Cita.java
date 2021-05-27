@@ -3,19 +3,24 @@ package equipo0_dominio;
 
 import com.google.gson.annotations.Expose;
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author dianacastro
  */
-public class Cita {
-    @Expose
-    private int id;
+@Entity
+public class Cita extends EntityBase{
+
+    private static final long serialVersionUID = 8590419907576168610L;
     @Expose
     private Paciente paciente;
     @Expose
     private TrabajadorSalud trabSalud;
     @Expose
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
     @Expose
     private boolean aceptada;
@@ -36,11 +41,11 @@ public class Cita {
     }
     
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

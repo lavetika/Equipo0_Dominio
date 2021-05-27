@@ -3,12 +3,16 @@ package equipo0_dominio;
 
 import com.google.gson.annotations.Expose;
 import java.util.Date;
+import javax.persistence.Entity;
 
 /**
  *
  * @author dianacastro
  */
+@Entity
 public class TrabajadorSalud extends Usuario{
+
+    private static final long serialVersionUID = 4268667195222309581L;
     @Expose
     private String cedula;
     @Expose
@@ -18,24 +22,21 @@ public class TrabajadorSalud extends Usuario{
     @Expose
     private String nombre;
     @Expose
-    private String sexo;
-    @Expose
-    private Date fechaNacimiento;
-    @Expose
     private String lugarTrabajo;
 
+    public TrabajadorSalud() {
+    }
+    
     public TrabajadorSalud(String username, String password) {
         super(username, password);
     }
 
-    public TrabajadorSalud(String cedula, String primerApellido, String segundoApellido, String nombre, String sexo, Date fechaNacimiento, String lugarTrabajo, String username, String password) {
+    public TrabajadorSalud(String cedula, String primerApellido, String segundoApellido, String nombre, String lugarTrabajo, String username, String password) {
         super(username, password);
         this.cedula = cedula;
         this.primerApellido = primerApellido;
         this.segundoApellido = segundoApellido;
         this.nombre = nombre;
-        this.sexo = sexo;
-        this.fechaNacimiento = fechaNacimiento;
         this.lugarTrabajo = lugarTrabajo;
     }
     
@@ -71,22 +72,6 @@ public class TrabajadorSalud extends Usuario{
         this.nombre = nombre;
     }
 
-    public String getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
-
-    public Date getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public void setFechaNacimiento(Date fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
-
     public String getLugarTrabajo() {
         return lugarTrabajo;
     }
@@ -95,6 +80,8 @@ public class TrabajadorSalud extends Usuario{
         this.lugarTrabajo = lugarTrabajo;
     }
     
-    
+    public String getNombreCompleto(){
+        return this.nombre+" "+this.primerApellido+" "+this.segundoApellido;
+    }
     
 }
